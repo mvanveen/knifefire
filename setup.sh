@@ -3,3 +3,4 @@ pip install -r requirements.txt
 git submodule init
 
 cd amcp-rpi; ./setup.py build --build-platlib=.
+sudo cp config/etc/network/interfaces /etc/network/interfaces

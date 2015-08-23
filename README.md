@@ -11,6 +11,8 @@
 
 ## Introduction
 
+Code respository for the Knifefire control unit.
+
 ## Resources
 
 Hackpad: <url>

@@ -1,0 +1,3 @@
+[submodule "amcp-rpi"]
+	path = amcp-rpi
+	url = git@github.com:ArdentHeavyIndustries/amcp-rpi.git

@@ -9,7 +9,6 @@ BROADCAST_IP = '10.0.0.4'
 
 
 class KnifeFireServer(liblo.ServerThread):
-
     def __init__(self, port):
         liblo.ServerThread.__init__(self, port)
         self.setup_gpio()
@@ -31,9 +30,51 @@ class KnifeFireServer(liblo.ServerThread):
 
     def serve(self):
         while True:
-            pass
+            # Drain all pending messages without blocking
+            while self.recv(0):
+                pass
+
 
 if __name__ == '__main__':
+#
+#    try:
+#        server = AMCPServer(port=8000, client_ip=BROADCAST_IP, client_port=9000)
+#    except liblo.ServerError, err:
+#        print str(err)
+#        sys.exit()
+#
+#    if platform.system() == "Darwin":
+#        service = None
+#    else:
+#        # Avahi announce so it's findable on the controller by name
+#        from avahi_announce import ZeroconfService
+#        service = ZeroconfService(
+#            name="AMCP TouchOSC Server", port=8000, stype="_osc._udp")
+#        service.publish()
+#
+#    # Main thread runs both our LED effects and our OSC server,
+#    # draining all queued OSC events between frames. Runs until killed.
+#
+#    try:
+#        server.mainLoop()
+#    except KeyboardInterrupt:
+#        # Cleanup
+#        if service:
+#            service.unpublish()
+#        if OnPi():
+#            import RPi.GPIO as GPIO
+#            GPIO.cleanup()
+#
+#    finally:
+#        logger.info('action="server_shutdown"')
+#
+#        # Cleanup
+#        if service:
+#            service.unpublish()
+#        if OnPi():
+#            import RPi.GPIO as GPIO
+#            GPIO.cleanup()
+
     kfs = KnifeFireServer(8000)
     kfs.start()
     kfs.serve()

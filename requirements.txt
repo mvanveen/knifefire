@@ -11,3 +11,4 @@ pygame==1.9.1release
 pygobject==3.8.2
 pyserial==2.5
 wsgiref==0.1.2
+netifaces==0.10.4

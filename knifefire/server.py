@@ -21,7 +21,7 @@ RELAY_WIREUP = {
     '/knifefire/fire4': 16,
     '/knifefire/fire5': 16,
     '/knifefire/fire6': 16,
-    '/knifefire/fire7': 16,
+    '/knifefire/push7': 16,  #TODO (mvv): minor bug in layout, needs fixing
     '/knifefire/fire8': 16,
 }
 print RELAY_WIREUP['/knifefire/fire1']

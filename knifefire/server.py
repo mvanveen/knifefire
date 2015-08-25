@@ -24,7 +24,7 @@ RELAY_WIREUP = {
     '/knifefire/push7': 16,  #TODO (mvv): minor bug in layout, needs fixing
     '/knifefire/fire8': 16,
 }
-print RELAY_WIREUP['/knifefire/fire1']
+
 
 class KnifeFireServer(liblo.Server):
     def __init__(self, port):

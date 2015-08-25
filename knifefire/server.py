@@ -98,25 +98,6 @@ class KnifeFireServer(liblo.Server):
 
 
 if __name__ == '__main__':
-#
-#    try:
-#        server = AMCPServer(port=8000, client_ip=BROADCAST_IP, client_port=9000)
-#    except liblo.ServerError, err:
-#        print str(err)
-#        sys.exit()
-#
-#    if platform.system() == "Darwin":
-#        service = None
-#    else:
-#        # Avahi announce so it's findable on the controller by name
-#        from avahi_announce import ZeroconfService
-#        service = ZeroconfService(
-#            name="AMCP TouchOSC Server", port=8000, stype="_osc._udp")
-#        service.publish()
-#
-#    # Main thread runs both our LED effects and our OSC server,
-#    # draining all queued OSC events between frames. Runs until killed.
-
     try:
        kfs = KnifeFireServer(8000)
        kfs.serve()

@@ -20,8 +20,15 @@ Code respository for the Knifefire control unit.
 
 ## Installation
 
-    ./setup.sh
-    
+```bash
+$ ./setup.sh
+```
+
+Once setup is complete, reboot your raspberry pi with:
+
+```
+$ sudo shutdown -r now
+``` 
 ## Running daemons
 
 To restart main daemon, run:

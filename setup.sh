@@ -10,3 +10,5 @@ sudo cp config/etc/network/interfaces /etc/network/interfaces
 
 sudo rm -f etc/supervisor/conf.d/*
 sudo cp supervisor/* /etc/supervisor/conf.d/
+
+cp touchosc/iphone5layout.touchosc osc-server/knifefire_template.touchosc

@@ -7,3 +7,6 @@ git submodule update
 cd amcp-rpi; ./setup.py build --build-platlib=.
 cd ..
 sudo cp config/etc/network/interfaces /etc/network/interfaces
+
+sudo rm -f etc/supervisor/conf.d/*
+sudo cp supervisor/* /etc/supervisor/conf.d/

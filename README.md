@@ -21,3 +21,13 @@ Code respository for the Knifefire control unit.
 ## Installation
 
     ./setup.sh
+    
+## Running daemons
+
+To restart main daemon, run:
+
+    $ sudo supervisordctl restart amcrp-rpi
+    
+To restart layout server, run:
+
+

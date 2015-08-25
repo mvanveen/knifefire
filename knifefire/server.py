@@ -14,6 +14,7 @@ NETWORK_DEVICE = 'eth0'
 BROADCAST_IP = netifaces.ifaddresses(NETWORK_DEVICE)[2][0]['addr']
 logging.info('broadcast ip: %s',  BROADCAST_IP)
 
+INITIAL_STATE = GPIO.LOW
 RELAY_WIREUP = {
     '/knifefire/fire1': 16,
     '/knifefire/fire2': 16,
@@ -53,13 +54,13 @@ class KnifeFireServer(liblo.Server):
         if value:
             self.RELAY_TIMINGS[relay_path] = time.time()
             self.RELAY_STATE[relay_path] = 1
-            GPIO.output(pin, GPIO.HIGH)
+            GPIO.output(pin, not INITIAL_STATE)
         elif value == 0:
             state_is_low = not self.RELAY_STATE.get(relay_path)
             if state_is_low:
                 logging.warning('state should already be low on pin %s', pin)
             self.RELAY_STATE[relay_path] = 0
-            GPIO.output(pin, GPIO.LOW)
+            GPIO.output(pin, INITIAL_STATE)
         else:
             logging.error(
                 "Not an acceptable value.  pin: %s, value: %s",
@@ -94,7 +95,7 @@ class KnifeFireServer(liblo.Server):
             state_is_high = self.RELAY_STATE.get(relay_path)
             if state_is_high and (now > (trigger_time + MAX_ON_SECONDS)):
                 logging.info('Timeout detected, shutting off pin %s', pin)
-                self.set_pin(relay_path, pin, GPIO.LOW)
+                self.set_pin(relay_path, pin, INITIAL_STATE)
 
 
 if __name__ == '__main__':

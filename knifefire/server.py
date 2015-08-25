@@ -14,7 +14,7 @@ NETWORK_DEVICE = 'eth0'
 BROADCAST_IP = netifaces.ifaddresses(NETWORK_DEVICE)[2][0]['addr']
 logging.info('broadcast ip: %s',  BROADCAST_IP)
 
-INITIAL_STATE = GPIO.LOW
+INITIAL_STATE = GPIO.HIGH
 RELAY_WIREUP = {
     '/knifefire/fire1': 16,
     '/knifefire/fire2': 16,

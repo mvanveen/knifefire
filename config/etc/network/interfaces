@@ -14,18 +14,20 @@ iface eth0 inet dhcp
 
 auto wlan0
 allow-hotplug wlan0
-iface wlan0 inet dhcp
-      wpa-ssid "alabama"
-      wpa-psk "sweethome816"
-
+#iface wlan0 inet dhcp
+#      wpa-ssid "knifefire"
+#      wpa-psk "knifefire"
+#
 #wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 
-iface default inet dhcp
+#iface default inet dhcp
 #wireless-essid knifefire
-
-#iface wlan0 inet static
-#network 192.168.1.0
-#address 192.168.1.42
-#netmask 255.255.255.0
-#gateway 192.168.1.20
-#wireless-mode managed
+iface wlan0 inet static
+	wpa-ssid "knifefire"
+	wpa-psk "knifefire"
+network 192.168.1.0
+address 192.168.1.42
+netmask 255.255.255.0
+broadcast 192.168.1.255
+gateway 192.168.1.20
+wireless-mode managed

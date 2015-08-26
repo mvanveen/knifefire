@@ -17,15 +17,16 @@ logging.info('broadcast ip: %s',  BROADCAST_IP)
 
 INITIAL_STATE = GPIO.HIGH
 RELAY_WIREUP = {
-    '/knifefire/fire1': 16,
-    '/knifefire/fire2': 16,
-    '/knifefire/fire3': 16,
-    '/knifefire/fire4': 16,
-    '/knifefire/fire5': 16,
-    '/knifefire/fire6': 16,
-    '/knifefire/push7': 16,  #TODO (mvv): minor bug in layout, needs fixing
+    '/knifefire/fire1': 27,
+    '/knifefire/fire2': 17,
+    '/knifefire/fire3': 22,
+    '/knifefire/fire4': 5,
+    '/knifefire/fire5': 6,
+    '/knifefire/fire6': 19,
+    '/knifefire/push7': 12,  #TODO (mvv): minor bug in layout, needs fixing
     '/knifefire/fire8': 16,
 }
+# last 2 are not intended to be wired up for this project
 
 
 class KnifeFireServer(liblo.Server):

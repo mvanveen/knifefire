@@ -11,7 +11,8 @@ logging.basicConfig(level=logging.INFO)
 
 MAX_ON_SECONDS = 2
 NETWORK_DEVICE = 'eth0'
-BROADCAST_IP = netifaces.ifaddresses(NETWORK_DEVICE)[2][0]['addr']
+# netifaces.AF_LINK is the link layer interface - ethernet
+BROADCAST_IP = netifaces.ifaddresses(NETWORK_DEVICE)[netifaces.AF_LINK][0]['addr']
 logging.info('broadcast ip: %s',  BROADCAST_IP)
 
 INITIAL_STATE = GPIO.HIGH
